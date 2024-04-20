@@ -20,7 +20,10 @@
 
 #include <SPI.h>
 #include <SD.h>
-
+#define MOSI 11
+#define MISO 12
+#define CLK 13
+#define CS 4
 File myFile;
 
 void setup() {
@@ -33,7 +36,7 @@ void setup() {
 
   Serial.print("Initializing SD card...");
 
-  if (!SD.begin(4)) {
+  if (!SD.begin(CS)) {
     Serial.println("initialization failed!");
     while (1);
   }
@@ -57,9 +60,6 @@ void setup() {
     Serial.println("error opening test.txt");
   }
 }
-
 void loop() {
   // nothing happens after setup
 }
-
-
