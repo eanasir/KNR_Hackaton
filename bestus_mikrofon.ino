@@ -18,6 +18,10 @@ void setup()
  
 void loop()
 {
+  mikrofon();
+}
+
+void mikrofon(){
   servo.write(current);
   Serial.print("LEFT: "); 
   Serial.print(analogRead(soundValueL)); //print the value of sound sensor
