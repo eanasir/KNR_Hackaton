@@ -3,8 +3,8 @@
 Servo servo; // servo object representing the MG 996R servo
 
 
-int sound_sensorL = A0;
-int sound_sensorR = A1; //assign to pin A2
+int sound_sensorL = A1;
+int sound_sensorR = A2; //assign to pin A2
 int soundValueL = 0;
 int soundValueR = 0;
 int eps =5; 
