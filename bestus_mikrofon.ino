@@ -3,17 +3,16 @@
 Servo servo; // servo object representing the MG 996R servo
 
 
-int sound_sensorL = A1;
-int sound_sensorR = A2; //assign to pin A2
-int soundValueL = 0;
-int soundValueR = 0;
+#define sound_sensorL  A1
+#define sound_sensorR  A2/ //assign to pin A2
+
 int eps =5; 
 int krok=1;
 int current = 90;
 void setup() 
 {
   Serial.begin(9600); //begin Serial Communication
-  servo.attach(3);
+  servo.attach(5);
 }
  
 void loop()
@@ -24,15 +23,15 @@ void loop()
 void mikrofon(){
   servo.write(current);
   Serial.print("LEFT: "); 
-  Serial.print(analogRead(soundValueL)); //print the value of sound sensor
+  Serial.print(analogRead(A1)); //print the value of sound sensor
   Serial.print("RIGHT: "); 
-  Serial.println(analogRead(soundValueR)); 
-  while ((analogRead(soundValueL)-analogRead(soundValueR))>eps){
+  Serial.println(analogRead(A2)); 
+  while ((analogRead(A1)-analogRead(A2))>eps){
     current=current-krok;
     servo.write(current);
     delay(100);
   }
-  while ((analogRead(soundValueR)-analogRead(soundValueL))>eps){
+  while ((analogRead(A2)-analogRead(A1))>eps){
     current=current+krok;
     servo.write(current);
     delay(100);
